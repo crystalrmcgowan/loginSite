@@ -12,10 +12,24 @@ app.use(express.static("public"))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.get("/", (req, res) => {
-  res.render("home")
+const authenticate = (req, res, next) => {
+  if (req.body.username === "get" && req.body.password === "there") {
+    next()
+  } else {
+    res.redirect("/login")
+  }
+}
+
+app.get("/login", (req, res) => {
+  res.render("login")
 })
 
-app.listen(3000, () => {
+app.use(authenticate)
+
+app.post("/", (req, res) => {
+  res.render("home", req.body)
+})
+
+app.listen(3000, (req, res) => {
   console.log("hey good lookin")
 })
