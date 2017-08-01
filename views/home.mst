@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h2>Your homepage</h2>
+    <h2>You're home!</h2>
     <img src="https://media.giphy.com/media/d2YWTOsVtuHgOHhC/giphy.gif" alt="">
   </body>
 </html>
